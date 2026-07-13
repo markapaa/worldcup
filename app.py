@@ -90,7 +90,8 @@ with tab1:
     
     idx_0, idx_1, idx_2 = list(model.classes_).index(0), list(model.classes_).index(1), list(model.classes_).index(2)
 
-    teams_list = sorted(df_matches['home_team'].unique())
+    teams_df = pd.read_csv('teams.csv')
+    teams_list = sorted(teams_df['team_name'].unique())
     col1, col2 = st.columns(2)
     with col1:
         team1 = st.selectbox("Ομάδα 1", teams_list, index=teams_list.index('Argentina') if 'Argentina' in teams_list else 0)
